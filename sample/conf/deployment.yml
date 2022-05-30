@@ -1,0 +1,25 @@
+custom:
+  cluster-props: &cluster-props
+    spark_version: !ENV ${SPARK_VERSION}
+
+  cluster: &cluster
+    new_cluster:
+      <<: *cluster-props
+      policy_name: !ENV ${POLICY_NAME}
+
+environments:
+  staging:
+    strict_path_adjustment_policy: true
+    jobs:
+      - name: !ENV ${JOB_NAME}
+        <<:
+          - *cluster
+        spark_python_task:
+          python_file: "file://dbx_config/jobs/opsguru/${JOB_NAME}.py"
+          parameters: ["--conf-file", "file:fuse://dbx_config/jobs/opsguru/conf/test/sample.yml"]
+      - name: "${JOB_NAME_TEST}"
+        <<:
+          - *cluster
+        spark_python_task:
+          python_file: "file://dbx_config/jobs/opsguru/tests/integration/${JOB_NAME}.py"
+          parameters: ["--conf-file", "file:fuse://dbx_config/jobs/opsguru/conf/test/sample.yml"]
