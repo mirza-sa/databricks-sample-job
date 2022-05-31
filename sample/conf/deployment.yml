@@ -15,11 +15,11 @@ environments:
         <<:
           - *cluster
         spark_python_task:
-          python_file: "file://dbx_config/jobs/opsguru/sample_job.py"
+          python_file: "file://dbx_config/jobs/databricks-sample-job/sample_job.py"
           parameters: ["--conf-file", "file:fuse://dbx_config/jobs/opsguru/conf/test/sample.yml"]
       - name: "sample_job_test"
         <<:
           - *cluster
         spark_python_task:
-          python_file: "file://dbx_config/jobs/opsguru/tests/integration/sample_job.py"
+          python_file: "file://dbx_config/jobs/databricks-sample-job/tests/integration/sample_job.py"
           parameters: ["--conf-file", "file:fuse://dbx_config/jobs/opsguru/conf/test/sample.yml"]
