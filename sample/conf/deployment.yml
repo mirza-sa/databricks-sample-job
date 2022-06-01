@@ -21,5 +21,5 @@ environments:
         <<:
           - *cluster
         spark_python_task:
-          python_file: "file://dbx_config/jobs/sample/tests/integration/sample_job.py"
+          python_file: "file://dbx_config/jobs/sample/tests/integration/sample_job_test.py"
           parameters: ["--conf-file", "file:fuse://dbx_config/jobs/sample/conf/test/sample.yml"]
