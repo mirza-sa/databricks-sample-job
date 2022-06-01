@@ -1,6 +1,6 @@
 import unittest
 
-from sample.sample_job import SampleJob
+from dbx_config.jobs.sample.sample_job import SampleJob
 from uuid import uuid4
 from pyspark.dbutils import DBUtils  # noqa
 
