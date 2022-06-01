@@ -3,7 +3,7 @@ import tempfile
 import os
 import shutil
 
-from dbx_config.jobs.sample.entrypoint import SampleJob
+from sample.sample_job import SampleJob
 from pyspark.sql import SparkSession
 from unittest.mock import MagicMock
 
