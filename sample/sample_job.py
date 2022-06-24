@@ -1,4 +1,4 @@
-from dbx_config.jobs.common import Job
+from dbx_config.jobs.sample.common import Job
 
 
 class SampleJob(Job):
