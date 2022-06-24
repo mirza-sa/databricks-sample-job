@@ -13,8 +13,8 @@ class SampleJob(Job):
 
         df = self.spark.range(0, 1000)
 
-        df.write.format(self.conf["output_format"]).mode("overwrite").save(
-            self.conf["output_path"]
+        df.write.format("delta").mode("overwrite").save(
+            "dbfs:/dbx/tmp/test/dbx_config"
         )
 
         self.logger.info("Sample job finished!")
